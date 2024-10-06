@@ -32,8 +32,8 @@ class Manager extends Employee {
 }
 
 // Four employee & manager instances with name, salary, and departments properties
-const jacob = new Manager("Jacob", 84000, "Designer", "Marketing");
-const olivia = new Manager("Olivia", 77000, "Developer", "Engineering");
+const jacob = new Manager("Jacob", 84000, "Designer", "Marketing", 8000);
+const olivia = new Manager("Olivia", 77000, "Developer", "Engineering", 7000);
 const sophie = new Employee("Sophie", 84000, "Developer", "Marketing");
 const mark = new Employee("Mark", 77000, "Designer", "Engineering");
 
@@ -61,6 +61,21 @@ class Department {
         return this.employees.reduce((total, employee) => total + employee.salary, 0);
     }
 
+    calculateTotalSalaryWithBonus(){
+        let totalSalary = 0;
+
+        for (const employee of this.employees) {
+            if (employee instanceof Manager) {
+                totalSalary += employee.salary + employee.bonus; // Add salary and bonus for managers
+            } else {
+                totalSalary += employee.salary; // Add salary for regular employees
+            }
+        }
+
+        return totalSalary;
+    }
+    
+
 }
 
 // Defines two instances of class Department for employees with two name properties 
@@ -76,3 +91,7 @@ engineering.addEmployee(mark);
 // Logs Department total salries of each department
 console.log(`Total salary in Marketing department: $${marketing.getDepartmentSalary()}`);
 console.log(`Total salary in Engineering department: $${engineering.getDepartmentSalary()}`);
+
+// Logs total salary with bonuses for each department
+console.log(`Total salary with bonuses in Marketing department: $${marketing.calculateTotalSalaryWithBonus()}`);
+console.log(`Total salary with bonuses in Engineering department: $${engineering.calculateTotalSalaryWithBonus()}`);
