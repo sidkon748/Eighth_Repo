@@ -10,7 +10,7 @@ class Employee {
     }
     // getDetails method for printing employee name, position, and salary 
     getDetails() { 
-        return `Name of employee: ${this.name}, Position of employee: ${this.position}, Salary of employee: $${this.salary}`;
+        return `Name of Employee: ${this.name}, Position of Employee: ${this.position}, Salary of Employee: $${this.salary}`;
     }
 }
 
@@ -31,17 +31,25 @@ class Manager extends Employee {
     }
 }
 
-// Four employee & manager instances with name, salary, and departments properties
+// Eight employee & manager instances with name, salary, and departments properties
 const jacob = new Manager("Jacob", 84000, "Designer", "Marketing", 8000);
 const olivia = new Manager("Olivia", 77000, "Developer", "Engineering", 7000);
-const sophie = new Employee("Sophie", 84000, "Developer", "Marketing");
+const sophia = new Employee("Sophie", 84000, "Developer", "Marketing");
 const mark = new Employee("Mark", 77000, "Designer", "Engineering");
+const luke = new Manager("Luke", 79000, "Designer", "Finance", 5000);
+const andrea = new Manager("Andrea", 80000, "Developer", "Production", 8000);
+const laura = new Employee("Laura", 81000, "Developer", "Finance");
+const ryan = new Employee("Ryan", 79000, "Designer", "Production");
 
 // Logs employee properties with getDetails method 
 console.log(jacob.getDetails()); 
 console.log(olivia.getDetails());   
-console.log(sophie.getDetails()); 
+console.log(sophia.getDetails()); 
 console.log(mark.getDetails()); 
+console.log(luke.getDetails()); 
+console.log(andrea.getDetails());   
+console.log(laura.getDetails()); 
+console.log(ryan.getDetails()); 
 
 //Task 2
 //Create a Department Class
@@ -78,20 +86,30 @@ class Department {
 
 }
 
-// Defines two instances of class Department for employees with two name properties 
+// Defines four instances of class Department for employees with their name properties 
 const marketing = new Department("Marketing");
 const engineering = new Department("Engineering");
+const finance = new Department("Finance");
+const production = new Department("Production");
 
 // Adds all salaries for each department class
 marketing.addEmployee(jacob);
-marketing.addEmployee(sophie);
+marketing.addEmployee(sophia);
 engineering.addEmployee(olivia);
 engineering.addEmployee(mark);
+finance.addEmployee(luke);
+finance.addEmployee(laura);
+production.addEmployee(andrea);
+production.addEmployee(ryan);
 
 // Logs Department total salries of each department
-console.log(`Total salary in Marketing department: $${marketing.getDepartmentSalary()}`);
-console.log(`Total salary in Engineering department: $${engineering.getDepartmentSalary()}`);
+console.log(`Total Salary in Marketing Department: $${marketing.getDepartmentSalary()}`);
+console.log(`Total Salary in Engineering Department: $${engineering.getDepartmentSalary()}`);
+console.log(`Total Salary in Finance Department: $${finance.getDepartmentSalary()}`);
+console.log(`Total Salary in Production Department: $${production.getDepartmentSalary()}`);
 
 // Logs total salary with bonuses for each department
-console.log(`Total salary with bonuses in Marketing department: $${marketing.calculateTotalSalaryWithBonus()}`);
-console.log(`Total salary with bonuses in Engineering department: $${engineering.calculateTotalSalaryWithBonus()}`);
+console.log(`Total Salary with Bonuses in Marketing Department: $${marketing.calculateTotalSalaryWithBonus()}`);
+console.log(`Total Salary with Bonuses in Engineering Department: $${engineering.calculateTotalSalaryWithBonus()}`);
+console.log(`Total Salary with Bonuses in Marketing Department: $${finance.calculateTotalSalaryWithBonus()}`);
+console.log(`Total Salary with Bonuses in Engineering Department: $${production.calculateTotalSalaryWithBonus()}`);
